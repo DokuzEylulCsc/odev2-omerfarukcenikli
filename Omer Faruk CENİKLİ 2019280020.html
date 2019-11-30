@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Omer Faruk CENİKLİ 2019280020</title>
+	</head>
+	<body>
+		<h1>Omer Faruk CENİKLİ 2019280020</h1>
+		<h2>2019 Güz Döneminin ikinci ödevi</h2>
+		<input id="input0" placeholder="Buraya Roma rakamı giriniz" size="25"></input><button id="buton0" onclick="myFunction0()">Çevir</button>
+		<p id="paragraf0">Sonuç :  </p>
+		<br>
+		<input id="input1" placeholder="Buraya Arap rakamı giriniz" size="25"></input><button id="buton1" onclick="myFunction1()">Çevir</button>
+		<p id="paragraf1">Sonuç :  </p>
+	<script>
+		function myFunction0() {
+		var girilenromarakami = document.getElementById("input0").value;
+		document.getElementById("paragraf0").innerHTML = "Sonuç :  " + (roman_to_Int(girilenromarakami));
+		}
+
+		function myFunction1() {
+		var girilenaraprakami = document.getElementById("input1").value;
+		document.getElementById("paragraf1").innerHTML = "Sonuç :  " + (Cevir(girilenaraprakami)); 
+		}
+		
+		function roman_to_Int(str1) {
+		if(str1 == null) return "Lütfen bir Roma rakamı giriniz.";
+		var num = char_to_int(str1.charAt(0));
+		var pre, curr;
+
+		for(var i = 1; i < str1.length; i++){
+		curr = char_to_int(str1.charAt(i));
+		pre = char_to_int(str1.charAt(i-1));
+		if(curr <= pre){
+		num += curr;
+		} 
+		else {
+		num = num - pre*2 + curr;
+		}
+		}
+
+		return num;
+		}
+
+		function char_to_int(c){
+		switch (c){
+		case 'I': return 1;
+		case 'V': return 5;
+		case 'X': return 10;
+		case 'L': return 50;
+		case 'C': return 100;
+		case 'D': return 500;
+		case 'M': return 1000;
+		default : return "Lütfen bir Roma rakamı giriniz.";
+		}
+		}
+
+		function Cevir(num1) {                     
+		if(num1 < 1)    { return "";}
+		if(num1 >= 4000){ return "Lütfen sadece 1 ile 3999 arasında sayı giriniz.";}
+		if(num1 >= 1000){ return "M"   + Cevir(num1 - 1000);}
+		if(num1 >= 590) { return "DXC" + Cevir(num1 - 590) ;}
+		if(num1 >= 550) { return "DL"  + Cevir(num1 - 550) ;}
+        if(num1 >= 540) { return "DXL" + Cevir(num1 - 540) ;}		
+		if(num1 >= 510) { return "DX"  + Cevir(num1 - 510) ;}		
+		if(num1 >= 500) { return "D"   + Cevir(num1 - 500) ;}		
+		if(num1 >= 190) { return "CXC" + Cevir(num1 - 190) ;}
+		if(num1 >= 150) { return "CL"  + Cevir(num1 - 150) ;}
+		if(num1 >= 140) { return "CXL" + Cevir(num1 - 140) ;}
+		if(num1 >= 110) { return "CX"  + Cevir(num1 - 110) ;}		
+		if(num1 >= 100) { return "C"   + Cevir(num1 - 100) ;} 	
+		if(num1 >= 90)  { return "XC"  + Cevir(num1 - 90)  ;}
+		if(num1 >= 50)  { return "L"   + Cevir(num1 - 50)  ;}  
+		if(num1 >= 40)  { return "XL"  + Cevir(num1 - 40)  ;}
+		if(num1 >= 10)  { return "X"   + Cevir(num1 - 10)  ;}
+		if(num1 >= 9)   { return "IX"  + Cevir(num1 - 9)   ;}
+		if(num1 >= 5)   { return "V"   + Cevir(num1 - 5)   ;}
+		if(num1 >= 4)   { return "IV"  + Cevir(num1 - 4)   ;}
+        if(num1 >= 1)   { return "I"   + Cevir(num1 - 1)   ;}  
+		}
+		
+		//Referance
+        //w3schools.com 
+		//w3resource.com
+	</script>
+	</body>
+</html>
